@@ -1,0 +1,4 @@
+venv
+cv.yaml
+__pycache__
+.vscode
