@@ -1,0 +1,28 @@
+full name: Foo Barskiy
+position: King of hackatons and Django E-commerce projects Master
+github: 
+linkedin: 
+mail: foo_barskiy@gmail.com
+phone: 
+skills:
+    - Web: every Python framework ever created
+    - Tests: every test frsmework you've ever seen
+    - Databases: relational, irrational
+about me: Who summoned me?
+experience:
+    - position: Great Python Developer
+      date: Past - Present
+      company: Good company
+      location: planet Earth
+      description: I did everything fine. 
+education:
+    - source: parents
+      title: Good Human
+      years: Past - Present
+pet projects:
+    - name: Python compiler
+      stack: Python
+      link: 
+languages:
+    - name: Quenya
+      level: Native

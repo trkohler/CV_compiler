@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="about-me">
+    <p>About me:</p>
+    {{ context['about me'] }}
+</div>
+<div class="skills">
+    <p>Skills:</p>
+    {% for skill in context['skills'] %}
+    {% for k, v in skill.items() %}
+    - {{ k }}: {{ v }} <br>
+    {% endfor %}
+    {% endfor %}
+</div>
+
+{% endblock content %}

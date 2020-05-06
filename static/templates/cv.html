@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="header">
+    <h1>
+        {{ context['full name'] }}
+    </h1>
+    <h4>
+        {{ context['position'] }}
+    </h4>
+    <small class="text-muted"><a href="mailto:{{ context['mail'] }} ">{{ context['mail'] }}</a> </small>
+    <small class="text-muted"> +{{ context['phone']}} </small>
+    <small class="text-muted"><a href="https://{{ context['github']}}">github</a> | </small>
+    <small class="text-muted"><a href="https://{{ context['linkedin']}}">linkedin</a></small>
+</div>
+<div class="about me">
+    <h4>
+        About Me
+    </h4>
+    <p>
+        {{ context['about me'] }}
+    </p>
+</div>
+<div class="skills">
+    <h4>
+        Skills
+    </h4>
+    {% for skill in context['skills']  %}
+    {% for k,v in skill.items() %}
+    {{ k }} :
+    {% set tags = v.split(',') %}
+    {% for tag in tags %}
+    <span class="badge badge-pill badge-dark">{{ tag }}</span>
+    {% endfor %}
+    <br>
+    {% endfor %}
+    {% endfor %}
+</div>
+<div class="experience">
+    <h4>
+        Experience
+    </h4>
+    {% for experience in context['experience'] %}
+    <b>{{ experience['position'] }}</b>
+    <small class="text-muted">
+        {{ experience['date'] }} |
+    </small>
+    <small class="text-muted">
+        {{ experience['company'] }} |
+    </small>
+    <small class="text-muted">
+        <strong>
+            {{ experience['location'] }}
+        </strong>
+    </small>
+    <p>
+        {{ experience['description'] }}
+    </p>
+    {% endfor %}
+</div>
+<div class="education">
+    <h4>
+        Education
+    </h4>
+    {% for education in context['education'] %}
+    <p>
+        <b>{{ education['title'] }}</b>
+        <small class="text-muted">
+            {{ education['source'] }} |
+        </small>
+        <small class="text-muted">
+            {{ education['years'] }}
+        </small>
+    </p>
+    {% endfor %}
+</div>
+<div class="pet-projects">
+    <h4>
+        My projects
+    </h4>
+    {% for pet in context['pet projects']  %}
+    {% if pet['link'] %}
+    <a href=" {{ pet['link'] }} ">{{ pet['name'] }}</a>
+    {% else %}
+    <a href="http://" target="_blank" rel="noopener noreferrer">
+        {{ pet['name'] }}
+    </a>
+    {% endif %}
+
+    <br>
+    {% set stack = pet['stack'].split(',') %}
+    <p>
+        {% for item in stack %}
+        <span class="badge badge-pill badge-light">{{ item }}</span>
+        {% endfor %}
+    </p>
+    {% endfor %}
+</div>
+<div class="languages">
+    <h4>
+        Languages
+    </h4>
+    {% for language in context['languages'] %}
+    {{ language['name'] }}
+    <span class="badge badge-pill badge-light">{{ language ['level'] }}</span>
+    <br>
+    {% endfor %}
+</div>
+<div class="footer">
+    <small>This CV was made programmatically using Bootstrap and Flask</small>
+</div>
+{% endblock content %}
